@@ -1940,15 +1940,15 @@
 // console.log(big[0]);
 
 
-const location = [
-  [100, 200],
-  [105, 205],
-  [110, 190],
-];
+// const location = [
+//   [100, 200],
+//   [105, 205],
+//   [110, 190],
+// ];
 
-const [a, b, c] = location;
+// const [a, b, c] = location;
 
-console.log(a, b, c);
+// console.log(a, b, c);
 // for (const point of location) {
 //   for (const coord of point) {
 //     console.log(coord);
@@ -2016,8 +2016,121 @@ console.log(a, b, c);
 
 // console.log(sum, numLength);
 
-function printFullname([name, surname, lastname, ...arg]) {
-    return `${name} ${surname} ${lastname} ${arg.length ? `(${arg.toString()})` : ""}`;
-  }
+// function printFullname([name, surname, lastname, ...arg]) {
+//     return `${name} ${surname} ${lastname} ${arg.length ? `(${arg.toString()})` : ""}`;
+//   }
   
-  console.log(printFullname(["Hanna", "Serhiyvna", "Bieltikova"]));
+//   console.log(printFullname(["Hanna", "Serhiyvna", "Bieltikova"]));
+
+
+
+// lesson 15
+
+// const key = "123";
+// const data = "17082023";
+// const name = "key";
+// const a = {
+//   // ключ: значення
+
+//   amount: 100,
+//   ["text"]: 'Hello world',
+//   [name]: 'Hanna',
+
+
+//   info: {
+//     name: "Zahar",
+//     age: 15
+//   },
+
+//   [key]: {
+//     [data]: "august"
+//   }
+// }
+// delete a.amount;
+// console.log(a.text, a[name], a.amount);
+// console.log(a.info.name, a.info.age);
+// console.log(a[key][data]);
+
+
+
+// const b = {};
+// console.log(b);
+
+// const role = {
+//   value: "admin",
+//   status: 3,
+// }
+
+// const person = {
+//   name: "Zahar",
+//   age: 15,
+//   occupation: "Учень",
+
+//   ...role,
+
+//   address: {
+//     city: "Odesa",
+//     street: "Давида Ойстраха",
+//     houseNumber: 18
+//   },
+
+//   getAddress: function () {
+//     return this.address;
+//   },
+// };
+
+// console.log("name" in person);
+// console.log(person.getAddress());
+
+
+
+
+
+// деструкторізація
+// const { age, name, 
+//   address: { city, street, zipecode = 1234567 },
+//   ...rest
+// } = person;
+// console.log(age, name, city, street, zipecode);
+// console.log(rest);
+
+// function getAddress({address: { city, street, houseNumber, zipecode = 123 },
+// }) {
+//   return `Ваша адреса: ${city} ${street} ${houseNumber} ${zipecode}`;
+// }
+
+// const test = getAddress(person);
+// console.log(test); 
+
+
+// ітерація обєкта
+// for(const key in person) {
+
+//   const item = person[key];
+
+//   if (typeof person[key] === "object") {
+//     for (const key2 in item) {
+//       console.log(item[key2]);
+//     }
+//   } else {
+//       console.log(item);
+//   }
+// }
+
+// const a = {test: 1};
+// const b = {test: 1};
+
+// console.log(a === b);
+
+
+Number.prototype.toOwnString = function () {
+  console.log(this);
+
+  return `число: ${this}`;
+};
+
+const b = 1;
+
+const c = b.toOwnString();
+
+console.log(c);
