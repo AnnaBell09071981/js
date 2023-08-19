@@ -2123,14 +2123,127 @@
 // console.log(a === b);
 
 
-Number.prototype.toOwnString = function () {
-  console.log(this);
+// Number.prototype.toOwnString = function () {
+//   console.log(this);
 
-  return `число: ${this}`;
+//   return `число: ${this}`;
+// };
+
+// const b = 1;
+
+// const c = b.toOwnString();
+
+// console.log(c);
+
+// lesson 16
+
+
+// const a = {
+//   name: "Hanna",
+//   age: 42,
+// };
+
+
+// // .........
+
+
+// const key = "name";
+
+// a[key] = "user";
+
+// console.log(a);
+
+// const  user = {
+//   name: 'Hanna',
+//   id: 123123,
+//   bookId: null,
+
+//   getPhone(book) {
+//     return book[this.bookId]
+//   },
+// }
+// const phoneBook = {
+//   me: "+380688254740",
+//   name: "Phone Book",
+// };
+
+// // .........
+
+// function addToPhoneBook(phone, user) {
+//     const symId = Symbol.for(user.id);
+
+//     phoneBook[symId] = phone;
+
+//     user.bookId = symId;
+// }
+
+
+
+// addToPhoneBook("+380688254748", user);
+
+// // ...........
+
+
+// addToPhoneBook("+380688254741", user);
+
+
+// // .........
+
+// // console.log(user.getPhone(phoneBook));
+
+
+// // .........
+
+// const symId = user.bookId;
+
+// // console.log(Symbol.keyFor(symId));
+
+// for (const key in phoneBook) {
+//   console.log(key);
+// }
+
+// for (const value of [1, 2, 3, 4, 5]) {
+//   console.log(value);
+// }
+
+// for (const value in [1, 2, 3, 4, 5]) {
+//   console.log(value);
+// }
+
+
+let range = {
+  from: 1,
+  to: 5,
+
+  [Symbol.iterator]() {
+    this.current = this.from;
+
+    return this;
+  },
+
+
+  next() {
+    return this.current <= this.to
+    ? { done: false, value: this.current++ }
+    : { done: true};
+  },
 };
 
-const b = 1;
+// for (let num of range) {
+//   console.log(num);
+// }
 
-const c = b.toOwnString();
 
-console.log(c);
+const arr = [1, 2, 3, 4, 5];
+
+const iterator = range[Symbol.iterator]();
+
+result = iterator.next();
+
+
+do {
+  console.log(result.value);
+
+  result = iterator.next();
+} while (!result.done);
+
