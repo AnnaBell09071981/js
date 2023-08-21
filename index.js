@@ -2211,39 +2211,131 @@
 // }
 
 
-let range = {
-  from: 1,
-  to: 5,
+// let range = {
+//   from: 1,
+//   to: 5,
 
-  [Symbol.iterator]() {
-    this.current = this.from;
+//   [Symbol.iterator]() {
+//     this.current = this.from;
 
-    return this;
-  },
+//     return this;
+//   },
 
 
-  next() {
-    return this.current <= this.to
-    ? { done: false, value: this.current++ }
-    : { done: true};
-  },
-};
+//   next() {
+//     return this.current <= this.to
+//     ? { done: false, value: this.current++ }
+//     : { done: true};
+//   },
+// };
 
 // for (let num of range) {
 //   console.log(num);
 // }
 
 
-const arr = [1, 2, 3, 4, 5];
+// const arr = [1, 2, 3, 4, 5];
 
-const iterator = range[Symbol.iterator]();
+// const iterator = range[Symbol.iterator]();
 
-result = iterator.next();
+// result = iterator.next();
 
 
-do {
-  console.log(result.value);
+// do {
+//   console.log(result.value);
 
-  result = iterator.next();
-} while (!result.done);
+//   result = iterator.next();
+// } while (!result.done);
 
+// lesson 17
+
+
+
+// console.log(Array.from('hello world'));
+
+// console.log(Array.from({ 0: "hello", 1: "world", 2: "!!!!!", length: 3 }, 
+// (elem, index) => {
+//   console.log(elem, index);
+
+//   return elem;
+// }
+// )
+// );
+
+
+const obj = {
+  0: "one",
+  1: "two",
+  2: "three",
+  length: 3,
+  prefix: "():",
+};
+
+const arr = Array.from(
+    obj,
+    function (elem, index) {
+     return `${this.prefix}${elem}`;
+    },
+    obj
+);
+
+console.log(Array.isArray(arr));
+
+
+let arr1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+const arr2 = [4, 5, 6, 4, 5, 6];
+// const arr3 = arr1;
+// console.log(Array.of(...arr1, ...arr2));
+
+// console.log(arr1.at(10));
+
+
+// console.log(arr1.push(10, 20, 30));
+
+// console.log(arr1.push(10, 20, 30) - arr1.length);
+// console.log(arr1);
+// console.log(arr1.pop());
+// console.log(arr1);
+
+// console.log(arr1.shift());
+
+// console.log(arr1);
+
+// console.log(arr1.unshift(0, 1));
+
+
+// console.log(arr1);
+
+// console.log(arr2.includes(5));
+
+// console.log(arr2.indexOf(5));
+
+// console.log(arr2.lastIndexOf(5));
+
+
+// const arr3 = arr1.concat(...arr2);
+
+// console.log(arr3)
+
+
+// console.log(arr1);
+// arr1.copyWithin(2, 6, 8);
+// console.log(arr1);
+// arr1.fill(2, 6, 9);
+// console.log(arr1);
+// arr1.reverse();
+// console.log(arr1);
+// const filtredArr = arr1.filter((value, index, array) => value % 2 === 0);
+
+// console.log(filtredArr);
+
+// const sortedArr = arr1.sort();
+
+// console.log(sortedArr);
+
+// const sortFn = (elem1, elem2) => elem1 - elem2;
+// const sortedArr = [1, 2, 3, 4, 10, 20, 30, 40].sort(sortFn);
+// console.log(sortedArr);
+
+console.log(arr2.every((elem, index, array) => elem >= 0));
+console.log(arr2.some((elem, index, array) => elem >= 0));
