@@ -2263,27 +2263,27 @@
 // );
 
 
-const obj = {
-  0: "one",
-  1: "two",
-  2: "three",
-  length: 3,
-  prefix: "():",
-};
+// const obj = {
+//   0: "one",
+//   1: "two",
+//   2: "three",
+//   length: 3,
+//   prefix: "():",
+// };
 
-const arr = Array.from(
-    obj,
-    function (elem, index) {
-     return `${this.prefix}${elem}`;
-    },
-    obj
-);
+// const arr = Array.from(
+//     obj,
+//     function (elem, index) {
+//      return `${this.prefix}${elem}`;
+//     },
+//     obj
+// );
 
-console.log(Array.isArray(arr));
+// console.log(Array.isArray(arr));
 
 
-let arr1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-const arr2 = [4, 5, 6, 4, 5, 6];
+// let arr1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+// const arr2 = [4, 5, 6, 4, 5, 6];
 // const arr3 = arr1;
 // console.log(Array.of(...arr1, ...arr2));
 
@@ -2337,5 +2337,531 @@ const arr2 = [4, 5, 6, 4, 5, 6];
 // const sortedArr = [1, 2, 3, 4, 10, 20, 30, 40].sort(sortFn);
 // console.log(sortedArr);
 
-console.log(arr2.every((elem, index, array) => elem >= 0));
-console.log(arr2.some((elem, index, array) => elem >= 0));
+// console.log(arr2.every((elem, index, array) => elem >= 0));
+// console.log(arr2.some((elem, index, array) => elem >= 0));
+
+// js-train-5
+
+// // Завдання 1: Дано масив, використовуючи цикл "for in" виведіть на консоль всі індекси цього масиву
+// function printIndexes(array) {
+//   for (const i in array) {
+//      console.log(i);
+//   }
+//   // Проходимося по всіх індексах масиву
+//   // Виводимо кожен індекс на консоль
+// }
+
+// console.log("Завдання 1 ====================================");
+// // console.log("printIndexes([1, 2, 3, 4, 5])", )
+// printIndexes([1, 2, 3, 4, 5]);
+// // Виведе
+// // 0
+// // 1
+// // 2
+// // 3
+// // 4
+
+// // Завдання 2: Дано масив, використовуючи цикл "for in" знайдіть суму всіх елементів масиву
+// function sumArray(array) {
+//   let sum = 0;
+
+//   for (const n of array) {
+//     sum += n;
+//   }
+
+//   return sum;
+
+//   // Ініціалізуємо змінну для зберігання суми
+//   // Проходимося по всіх індексах масиву
+//   // Додаємо кожен елемент до загальної суми
+//   // Повертаємо суму
+// }
+
+// console.log("Завдання 2 ====================================");
+// console.log("sumArray([1, 2, 3, 4, 5])", sumArray([1, 2, 3, 4, 5])); // Виведе 15
+
+// // Завдання 3: Дано масив, використовуючи цикл "for of" знайдіть добуток всіх елементів масиву
+// function multiplyArray(array) {
+//   let d = 1;
+
+//   for (const i of array) {
+//     d *= i;
+//   }
+
+//   return d;
+//   // Ініціалізуємо змінну для зберігання добутку
+//   // Проходимося по всіх значеннях масиву
+//   // Множимо кожен елемент на загальний добуток
+//   // Повертаємо добуток
+// }
+
+// console.log("Завдання 3 ====================================");
+// console.log("multiplyArray([1, 2, 3, 4, 5])", multiplyArray([1, 2, 3, 4, 5])); // Виведе 120
+
+// // Завдання 4: Дано масив рядків. Видаліть третій елемент масиву та перетворіть в рядок за допомогою методу toString(). Результат виведіть на консоль.
+// function modifyArray(array) {
+//   delete array[2];
+//   return array.toString();
+//   // Видаляємо третій елемент масиву
+//   // Виводимо масив перетворений в рядок
+// }
+
+// console.log("Завдання 4 ====================================");
+// console.log("modifyArray([1, two, 3, four, 5])", modifyArray([1, "two", 3, "four", 5])); 
+// // Виведе 1,two,,four,5
+
+// // Завдання 5: Дано масив рядків. За допомогою циклу for переберіть масив, виведіть кожен елемент на консоль у верхньому регістрі.
+// function printUppercase(array) {
+//   for (let i of array) {
+//     i = i.toUpperCase();
+//     console.log(i);
+  
+// }
+//   // Проходимося по всіх елементах масиву
+//   // Перетворюємо кожен елемент в верхній регістр та виводимо на консоль
+// }
+
+// console.log("Завдання 5 ====================================");
+// printUppercase(["one", "two", "three"]); // Виведе ONE TWO THREE
+
+// // Завдання 6: Функція приймає деструктуризований масив чисел де буду перший елемент та масив всіх інших.
+// // За допомогою циклу for переберіть масив, знайдіть мінімальне та максимальне значення. Результат виведіть на консоль.
+// function findMinMax([firstElement, ...restElements]) {
+//   let min = firstElement;
+//   let max = firstElement;
+//   for (let i = 0; i < restElements.length; i++) {
+//     if(restElements[i] < min) {
+//       min = restElements[i];
+//     };
+//     if(restElements[i] > max) {
+//       max = restElements[i];
+//     };   
+//   };
+//   console.log("Min:", min, "Max:", max);  
+//   // Ініціалізуємо змінні для мінімального та максимального значень, задаємо їм перше значення масиву
+//   // Перебираємо масив починаючи з другого елементу
+//   // Перевіряємо, чи поточний елемент менший за мінімальне значення
+//   // Якщо так, оновлюємо мінімальне значення
+//   // Перевіряємо, чи поточний елемент більший за максимальне значення
+//   // Якщо так, оновлюємо максимальне значення
+//   // Виводимо мінімальне та максимальне значення
+// }
+
+// console.log("Завдання 6 ====================================");
+// findMinMax([5, 2, 8, 1, 9, 3]); // Виведе Min: 1 Max: 9
+
+// // Завдання 7: Функція приймає масив рядків.
+// // Перетворіть масив в рядок за допомогою методу toString() та повторіть його 2 рази. Результат виведіть на консоль.
+// function printStrings(array) {
+//   console.log(array.toString().repeat(2));
+//   // Перетворюємо масив в рядок і видаляемо пробіли та виводимо його на консоль
+// }
+
+// console.log("Завдання 7 ====================================");
+// printStrings([1, "two", 3, "four", 5]); // 1,two,3,four,51,two,3,four,5
+
+// // Завдання 8: Функція приймає масив рядків.
+// // За допомогою методу toString() перетворіть масив в рядок, та виясніть чи є в цьому рядку підрядок subString .
+
+// function concatenateStrings(array, subString) {
+//   let arr = array;
+//   let subS = subString;
+//   toString(arr);
+//   toString(subS);
+//   console.log(arr.includes(subS));
+  
+//   // console.log(arr, subS);
+//   // Використовуємо метод toString() для перетворення масиву в рядок
+//   //Перевіряємо чи містить рядок підрядок
+//   // Виводимо результат
+// }
+
+// console.log("Завдання 8 ====================================");
+// concatenateStrings([1, "two", 3, "four", 5], "two"); // Виведе true
+
+// // Завдання 9: Функція приймає масив чисел.
+// // За допомогою циклу for-in переберіть масив, додайте до кожного елемента 10.
+// // Зберігайте результат в новому масиві. Результат виведіть на консоль.
+// function addTenToEach(array) {
+//   for(const i in array) {
+//     let a = array[i] + 10;
+//     for (let j = 0; j < array[i].length; j++) {
+//       let suma = [a];
+//       return suma;
+//     };
+//     let suma = [a];
+//     console.log(suma);
+//   }
+//   // Ініціалізуємо масив через конструктор з такою же кількістю елементів як в вхідному масиві для зберігання результату
+//   // Перебираємо масив за допомогою циклу for-in
+//   // Додаємо до поточного елемента 10 та додаємо результат в новий масив
+//   // Виводимо результат
+// }
+
+// console.log("Завдання 9 ====================================");
+// addTenToEach([5, 10, 15, 20]); // Виведе [15, 20, 25, 30]
+
+// // Завдання 10: Створити функцію, яка приймає масив чисел як аргумент.
+// function swapMinMax(array) {
+//   let max = array[0];
+//   let min = array[0];
+//   let maxIndex = 0;
+//   let minIndex = 0;
+//   for (let i = 0; i < array.length; i++) {
+//     if (max < array[i]) {
+//       max = array[i];
+//       maxIndex = i;
+//     } else if (min > array[i]) {
+//       min = array[i];
+//       minIndex = i;
+//     };
+//   };
+//   [array[minIndex], array[maxIndex]] = [array[maxIndex], array[minIndex]];
+//   return array;
+//   // Ініціалізуємо дві змінні (max і min) з першим елементом масиву. Ці змінні будуть використовуватися для зберігання максимального та мінімального значень в масиві.
+//   // Ініціалізуємо дві змінні (maxIndex і minIndex) з нульового значення. Ці змінні будуть використовуватися для зберігання індексів максимального та мінімального значень в масиві.
+//   // Використовуємо цикл for для ітерації по масиву. Починаємо з першого елемента (i = 0) і продовжуємо до останнього елемента масиву (i < array.length).
+//   // Умова if перевіряє, чи є поточний елемент масиву більшим за поточне максимальне значення. Якщо це так, оновлюємо max з поточним елементом масиву та maxIndex з поточним індексом.
+//   // Умова else if перевіряє, чи є поточний елемент масиву меншим за поточне мінімальне значення. Якщо це так, оновлюємо min з поточним елементом масиву та minIndex з поточним індексом.
+//   // Застосовуємо деструктуризацію масиву для обміну місцями мінімального та максимального значення в масиві.
+//   // Функція повертає масив, в якому мінімальне та максимальне значення обміняні місцями.
+// }
+
+// console.log("Завдання 10 ====================================");
+// // Виводимо в консоль результат виклику функції swapMinMax з масивом [1, 2, 3, 4, 5] як аргументом. Очікуємо бачити [5, 2, 3, 4, 1], оскільки максимальне та мінімальне значення обміняні місцями.
+// console.log(swapMinMax([1, 2, 3, 4, 5]));
+
+// // Завдання 11: Функція приймає масив чисел. Поверніть новий масив, який містить тільки парні числа з оригінального масиву.
+// function getEvenNumbers(arr) {
+//   let testArr = [];
+//   for (let i = 0; i < arr.length; i++) {    
+//       if (arr[i] % 2 === 0) {
+//           testArr = arr[i];     
+//         console.log(testArr);
+//     };
+//   };
+//   // Створюємо пустий масив для зберігання результату
+//   // Проходимо через кожен елемент вхідного масиву
+//   // Перевіряємо чи є число парним
+//   // Якщо так, додаємо його до масиву результату
+//   // Повертаємо масив результату
+// }
+// console.log("Завдання 11 ====================================");
+// console.log(getEvenNumbers([1, 2, 3, 4, 5, 6])); // Виведе [2, 4, 6]
+
+// // Завдання 12: Функція приймає масив чисел. Поверніть новий масив, в якому всі числа помножені на їх індекс.
+// function multiplyByIndex(arr) {
+//   let testArr = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     testArr = arr[i] * i; 
+//     console.log(testArr);
+//   };
+//   // Створюємо пустий масив для зберігання результату
+//   // Проходимо через кожен елемент вхідного масиву
+//   // Помножуємо число на його індекс і додаємо до масиву результату
+//   // Повертаємо масив результату
+// }
+// console.log("Завдання 12 ====================================");
+// console.log(multiplyByIndex([1, 2, 3, 4, 5])); // Виведе [0, 2, 6, 12, 20]
+
+// // Завдання 13: Функція приймає масив чисел. Повертає новий масив, в якому всі числа більші за 10 замінені на рядок "Greater than 10", а решта чисел замінені на рядок "Less than or equal to 10".
+// function replaceNumbers(arr) {
+//   let testArr = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] > 10) {
+//       testArr = (arr[i] + "Greater than 10");
+//     };
+//      if (arr[i] <= 10) {
+//       testArr = (arr[i] + "Less than or equal to 10");
+//     };
+//     console.log(testArr);
+//   };
+  
+ 
+//   // Створюємо пустий масив для зберігання результату
+//   // Проходимо через кожен елемент вхідного масиву
+//   // Перевіряємо, чи число більше за 10
+//   // Якщо число більше за 10, додаємо рядок "Greater than 10" до масиву результату
+//   // Якщо число менше або дорівнює 10, додаємо рядок "Less than or equal to 10" до масиву результату
+//   // Повертаємо масив результату
+// }
+
+// console.log("Завдання 13 ====================================");
+// console.log(replaceNumbers([5, 10, 15, 20])); // Виведе ["Less than or equal to 10", "Less than or equal to 10", "Greater than 10", "Greater than 10"]
+
+
+// lesson 18
+
+
+// const userList = [
+//     {id: 1, name: 'Dima', age: 19},
+//     {id: 54, name: 'Ivan', age: 35},
+//     {id: 6412, name: 'Anton', age: 41},
+// ];
+
+// let age = 0;
+
+// const userBigAge = userList.find(({ age: userAge }, index, array) => {
+//     // {age: userAge} це дуструктуризація
+//     // є властивість age, в середені цієї властивості є певне зачення (age) буде вже кластися в userAge
+//     // цикл if штерація по масиву - шукаєм на більший вік
+//         if (userAge > age) {
+//             age = userAge;
+//         }
+// });
+// console.log(age);
+
+// const userBigAge = userList.sort((user1, user2) => {
+//     return user2.age - user1.age;
+// });
+
+// console.log(userBigAge[0]);
+
+
+// const userList = [
+//     {id: 1, name: 'Dima', age: 19, balance: 300 },
+//     {id: 54, name: 'Ivan', age: 35, balance: 0 },
+//     {id: 6412, name: 'Anton', age: 41, balance: 10200 },
+// ];
+
+// const result = userList.map((user, index, array) => {
+//     user.balanceLimit = 1000 - user.balance;
+
+//     if (user.balanceLimit < 0) {
+//         user.balanceLimit = 0;
+//     }
+//     return user;
+// });
+// console.log(result);
+
+// const result = userList.map((user, index, array) => {
+//         return user.name;
+//     });
+//     console.log(result.join(", "));
+
+// userList.map((user, index, array) => {
+//     return 1;
+// });
+// console.log(userList);
+
+// const result = userList.reduceRight((num, user, userIndex, array) => {
+//     console.log(num, user.age);
+
+//     return user.age > num ? user.age : num;
+// }, 1);
+// console.log(result);
+
+// const result = userList.reduce((num, user, userIndex, array) => {
+//     console.log(num, user.age);
+
+//     return user.age > num ? user.age : num;
+// }, 1);
+// console.log(result);
+// const totalBalance = userList.reduce((num, user) => num + user.balance, 0);
+// console.log(totalBalance);
+// let minAge = 30;
+
+// const userBigAge = userList.find(({ age }) => age >= 30);
+
+// const userBigAge = userList.findIndex(({ age }) => age >= minAge);
+
+// const userBigAge = userList.findLast(({ age }) => age >= minAge);
+
+// console.log(userBigAge);
+
+// console.log = userList.keys();
+
+
+// const iter = userList.keys();
+
+// for (const elem of iter) {
+//     console.log(elem);
+// }
+
+// const iter = userList.values();
+
+// console.log(iter);
+
+// const result = iter.next();
+// console.log(result);
+
+// for (const elem of iter) {
+//     console.log(elem);
+// }
+
+// const arr = ["Apple", "Hotdog", "Bread", "Milk"]
+// console.log(arr.toString());
+// console.log(arr.join(", "));
+
+
+// const arrSmall = arr.splice(1, 2, "Tea", "Cheese");
+// const arrSmall = arr.slice(1, 2);
+// console.log(arrSmall);
+// console.log(arr);
+
+
+// const flatArray = [
+//     [
+//         [100, 200],
+//         [105, 205],
+//     ],
+//     [
+//         [220, 230],
+//         [430, 455],
+//     ],
+// ];
+
+
+// const result = flatArray.flatMap((el) => {
+
+//     return el.map((it) => {
+//          return it[0] - it[1];
+//      });
+//  });
+//  console.log(result);
+
+//  result.forEach((elem, index, array) => {
+//     console.log(elem);
+//  });
+
+
+// const result = flatArray.map((el) => {
+
+//     const newArr =  el.map((it) => {
+//          return it[0] - it[1];
+//      });
+//      console.log(newArr);
+
+//      return newArr;
+//  });
+ 
+
+// const result = flatArray.map((el) => {
+
+//    return el.map((it) => {
+//         return it[0] - it[1];
+//     });
+// });
+// console.log(result);
+// const result = flatArray.map((el) => {
+//     console.log(el);
+
+//     el.map((it) => {
+//         console.log(it);
+
+//         return it;
+//     });
+
+//     return el;
+// });
+// console.log(flatArray.flat());
+
+// console.log(flatArray.map((el) => el[0] - el[1]));
+
+// lesson 19
+
+
+const article = {
+    info: {
+        title: 'My article',
+        description: "This is info about article",
+    },
+    id: 105423,
+    categoryId: 1423,
+    likeAmount: 442,
+};
+
+article_filde = {
+    id: 1054,
+    title: 'Заголовок',
+    description: "This is info about article",
+    categoryId: 1423,
+    likeAmount: 442,
+};
+
+articlePhoto = {
+    photoUrl: "...url",
+    photoId: 100,
+    photoType: "big",
+};
+
+articleCommentList = {
+    list: [{id: 4323, user: "Ivan", message: "Крутий контент"}]
+};
+
+Object.assign(article, articlePhoto, articleCommentList);
+
+// console.log(article);
+
+// console.log(Object.entries(article));
+
+const formList = Object.entries(article.info);
+
+const formListLayout = formList.map(([key, value]) => {
+    return `<p><strong>${article_filde[key]} </strong><br><span> ${value} </span></p>`;
+});
+
+// console.log(formListLayout);
+
+const objArr = [
+    ["id", 102354],
+    ["title", "My product name"],
+    ["price", 1203],
+];
+
+// console.log(Object.fromEntries(objArr));
+
+// console.log(article.hasOwnProperty("id"));
+
+// console.log(article.propertyIsEnumerable("id"));
+
+// Object.freeze(article);
+
+// Object.preventExtensions(article);
+
+
+// Object.seal(article);
+// delete article.id;
+// console.log(article.id);
+// console.log(Object.isSealed(article));
+// console.log(Object.keys(article));
+// console.log(Object.values(article));
+
+// article.title = "hello";
+
+// console.log(article);
+
+// console.log(Object.isFrozen(article));
+
+// console.log(Object.isExtensible(article));
+// let str = "#"
+// console.log(str);
+// for (let i = 0; i < 7; i++) {  
+//     str = str + "#";
+//    console.log(str);
+// };
+
+// let num = 1;
+// for (let i = 0; i < 100; i++) {
+//     if (num % 3 === 0) {
+//         console.log("Fizz");
+//     };
+//     if (num % 5 === 0) {
+//         console.log("Buzz");
+//     }; 
+//     if (num % 3 === 0 && num % 5 === 0) {
+//         console.log("FrizzBuzz");
+//     } else {
+//         console.log(num);
+//     };
+//     num = num + 1;
+// };
+
+let size = 8;
+
+let str = " # # # #";
+let str1 = "# # # # ";
+for (let i = 0; i < 4; i++) {
+    console.log(str);
+    console.log(str1);
+};
